@@ -1,0 +1,9 @@
+<mat-list-item>
+  <mat-checkbox [checked]="todo.completed" (change)="onToggle()">
+    <span [class.completed]="todo.completed">{{ todo.title }}</span>
+  </mat-checkbox>
+  <span class="spacer"></span>
+  <button mat-icon-button color="warn" (click)="onDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</mat-list-item>

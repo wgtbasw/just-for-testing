@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-label>New Todo</mat-label>
+  <input matInput [(ngModel)]="newTodoTitle" (keyup.enter)="addTodo()">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="addTodo()">Add</button>

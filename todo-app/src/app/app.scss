@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 600px;
+}
+
+app-add-todo {
+    display: block;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,8 @@
+<mat-list>
+  <app-todo-item
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (delete)="deleteTodo($event)"
+    (toggle)="toggleCompleted($event)"
+  ></app-todo-item>
+</mat-list>

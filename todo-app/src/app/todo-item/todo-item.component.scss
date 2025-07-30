@@ -1,0 +1,13 @@
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-list-item {
+    display: flex;
+    justify-content: space-between;
+}
