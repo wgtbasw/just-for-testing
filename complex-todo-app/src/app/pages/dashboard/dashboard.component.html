@@ -1,0 +1,31 @@
+<nz-layout class="layout">
+  <nz-sider nzCollapsible nzWidth="200px">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzTitle="Projects" nzIcon="appstore">
+        <ul>
+          <li nz-menu-item *ngFor="let project of projects">{{ project.name }}</li>
+        </ul>
+      </li>
+    </ul>
+    <button nz-button nzType="primary" (click)="showProjectModal()" class="new-project-btn">New Project</button>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="header-content">
+        <span class="header-title">Todo App</span>
+        <div class="header-right">
+          <button nz-button nzType="default" (click)="toggleTheme()">Toggle Theme</button>
+          <a routerLink="/profile">Profile</a>
+          <a (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <button nz-button nzType="primary" (click)="showTaskModal()">New Task</button>
+        <app-task-list (edit)="showTaskModal($event)"></app-task-list>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

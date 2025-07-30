@@ -1,0 +1,44 @@
+<form nz-form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="title" nzRequired>Title</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input the title of the task!">
+      <input nz-input id="title" formControlName="title" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description">Description</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <textarea nz-input id="description" formControlName="description" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dueDate">Due Date</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-date-picker id="dueDate" formControlName="dueDate"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="priority">Priority</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-select id="priority" formControlName="priority">
+        <nz-option nzValue="low" nzLabel="Low"></nz-option>
+        <nz-option nzValue="medium" nzLabel="Medium"></nz-option>
+        <nz-option nzValue="high" nzLabel="High"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="project">Project</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-select id="project" formControlName="project">
+        <nz-option *ngFor="let project of projects" [nzValue]="project.id" [nzLabel]="project.name"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSm]="14" [nzXs]="24" [nzOffset]="6">
+      <button nz-button nzType="primary" [disabled]="!taskForm.valid">Submit</button>
+      <button nz-button (click)="destroyModal()">Cancel</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

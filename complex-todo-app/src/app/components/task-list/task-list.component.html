@@ -1,0 +1,28 @@
+<nz-table #basicTable [nzData]="tasks">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Due Date</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.title }}</td>
+      <td>{{ data.description }}</td>
+      <td>{{ data.dueDate | date }}</td>
+      <td>
+        <nz-tag [nzColor]="getPriorityColor(data.priority)">{{ data.priority }}</nz-tag>
+      </td>
+      <td>{{ data.status }}</td>
+      <td>
+        <a (click)="editTask(data)"><span nz-icon nzType="edit"></span></a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="deleteTask(data.id)"><span nz-icon nzType="delete"></span></a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
